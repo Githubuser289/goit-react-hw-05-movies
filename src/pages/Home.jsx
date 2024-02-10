@@ -2,8 +2,7 @@ import { MoviesList } from 'components/MoviesList';
 import { useEffect, useState } from 'react';
 import { fetchTrendingMovies, fetchMoviesGenres } from 'services/TheMovieDBapi';
 
-let searchQuery = '',
-  listOfGenres,
+let listOfGenres,
   counter = 0;
 let movieData = {
   id: 0,
@@ -69,6 +68,7 @@ export const Home = () => {
         movieData.genres = genre;
         counter++;
         if (counter <= 20) movieArray.push(movieData);
+        return movieData;
       }
     );
     setFlag(true);
@@ -80,8 +80,8 @@ export const Home = () => {
 
   return (
     <main>
-      <h1>Trending today</h1>
-      <MoviesList data={movieArray} />
+      {flag && <h1>Trending today</h1>}
+      {flag && <MoviesList data={movieArray} />}
     </main>
   );
 };

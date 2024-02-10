@@ -20,6 +20,7 @@ export const Cast = () => {
           actor.profile_path =
             'https://image.tmdb.org/t/p/w500/' + actor.profile_path;
         }
+        return actor;
       });
       setCredits(list);
     }
