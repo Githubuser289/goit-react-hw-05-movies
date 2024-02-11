@@ -3,6 +3,7 @@ import Searchbar from 'components/Searchbar';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { fetchMoviesGenres, fetchSearchedMovies } from 'services/TheMovieDBapi';
+import Loader from 'components/Loader/Loader';
 
 let movieData = {
   id: 0,
@@ -22,11 +23,13 @@ let listOfGenres,
 
 export const Movies = () => {
   const [flag, setFlag] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query');
 
   useEffect(() => {
     async function renderSearchedMovies() {
+      setIsLoading(true);
       const listOfGen = await fetchMoviesGenres();
       listOfGenres = listOfGen.genres;
       const data = await fetchSearchedMovies(query, 1);
@@ -79,6 +82,7 @@ export const Movies = () => {
     }
     if (!query) return;
     renderSearchedMovies();
+    setIsLoading(false);
   }, [query]);
 
   const handleSubmit = evt => {
@@ -96,6 +100,10 @@ export const Movies = () => {
     <main>
       <Searchbar submitCallback={handleSubmit} />
       <br />
+      {isLoading && <Loader />}
+      {movieArray.length === 0 && flag && (
+        <i>There are no movies whose title contains this word. </i>
+      )}
       {flag && <MoviesList data={movieArray} />}
     </main>
   );

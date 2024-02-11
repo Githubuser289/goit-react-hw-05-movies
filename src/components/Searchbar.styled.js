@@ -1,5 +1,10 @@
 import styled from 'styled-components';
 
+export const Container = styled.div`
+  padding: 0;
+  margin: 0;
+`;
+
 export const Header = styled.header`
   top: 0;
   left: 0;
@@ -8,7 +13,6 @@ export const Header = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 64px;
   color: #fff;
 `;
 
@@ -16,7 +20,7 @@ export const SearchForm = styled.form`
   display: flex;
   align-items: center;
   width: 100%;
-  max-width: 600px;
+  max-width: 500px;
   background-color: #fff;
   border-radius: 6px;
   overflow: hidden;

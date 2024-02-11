@@ -43,7 +43,7 @@ async function fetchMoviesGenres() {
 async function fetchMovieReviews(movieId) {
   try {
     const response = await axios.get(
-      `${TMDB_URL}reviews/${movieId}?api_key=${API_KEY}`
+      `${TMDB_URL}movie/${movieId}/reviews?api_key=${API_KEY}`
     );
     return response.data;
   } catch (error) {

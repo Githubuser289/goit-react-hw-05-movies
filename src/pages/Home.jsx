@@ -1,6 +1,7 @@
 import { MoviesList } from 'components/MoviesList';
 import { useEffect, useState } from 'react';
 import { fetchTrendingMovies, fetchMoviesGenres } from 'services/TheMovieDBapi';
+import Loader from 'components/Loader/Loader';
 
 let listOfGenres,
   counter = 0;
@@ -20,6 +21,7 @@ let movieArray = [];
 
 export const Home = () => {
   const [flag, setFlag] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   async function renderTrendingMovies() {
     const listOfGen = await fetchMoviesGenres();
@@ -72,14 +74,17 @@ export const Home = () => {
       }
     );
     setFlag(true);
+    setIsLoading(false);
   }
 
   useEffect(() => {
+    setIsLoading(true);
     renderTrendingMovies();
   }, []);
 
   return (
     <main>
+      {isLoading && <Loader />}
       {flag && <h1>Trending today</h1>}
       {flag && <MoviesList data={movieArray} />}
     </main>

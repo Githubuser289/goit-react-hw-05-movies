@@ -1,4 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
 export const MoviesList = props => {
   const location = useLocation();
   return (
@@ -16,6 +18,10 @@ export const MoviesList = props => {
       </ul>
     </nav>
   );
+};
+
+MoviesList.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 // to adapt this function in order to get a gallery filled with movie posters

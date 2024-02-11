@@ -20,8 +20,8 @@ export const Header = styled.header`
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 8px 30px;
-  margin-bottom: 16px;
+  padding: 5px 30px;
+  margin-bottom: 10px;
   border-bottom: 1px solid black;
   background-color: darkblue;
 

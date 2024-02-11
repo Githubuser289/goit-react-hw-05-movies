@@ -31,7 +31,7 @@ function Searchbar({ submitCallback }) {
           name="searchInput"
           autoComplete="off"
           autoFocus
-          placeholder="Search images and photos"
+          placeholder="Enter a word from a movie title"
         />
       </SearchForm>
     </Header>

@@ -1,45 +1,38 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchMovieReviews } from 'services/TheMovieDBapi';
 
 export const Reviews = () => {
   const { movieId } = useParams();
+  const [reviewsList, setReviewsList] = useState([]);
+  let revList = [];
 
   useEffect(() => {
     async function prepareDetails() {
       const data = await fetchMovieReviews(movieId);
-      console.log(data);
+      revList = [...data.results];
+      setReviewsList(revList);
     }
-    console.log('useEffect');
     if (!movieId) return;
     prepareDetails();
   }, [movieId]);
 
   return (
-    <main>
-      <div>
-        <p>Reviews page -- p element</p>
-      </div>
-      {/* <Outlet /> */}
-    </main>
+    <>
+      {!reviewsList.length ? (
+        <i>   Sorry! There are no reviews for this movie. </i>
+      ) : (
+        <div>
+          {reviewsList.map(review => {
+            return (
+              <div key={review.id}>
+                <span>{review.author}</span>
+                <p>{review.content}</p>
+              </div>
+            );
+          })}
+        </div>
+      )}
+    </>
   );
 };
-
-// return (
-//   <>
-//     {!movieReviews.length ? (
-//       <TitlePage text="Sorry! We dont have any reviews for this movie" />
-//     ) : (
-//       <ul className={css.list}>
-//         {movieReviews.map(({ id, author, content }) => {
-//           return (
-//             <li className={css.item} key={id}>
-//               <b className={css.author}>{author}</b>
-//               <p className={css.content}>{content}</p>
-//             </li>
-//           );
-//         })}
-//       </ul>
-//     )}
-//   </>
-// );
