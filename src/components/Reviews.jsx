@@ -5,13 +5,11 @@ import { fetchMovieReviews } from 'services/TheMovieDBapi';
 export const Reviews = () => {
   const { movieId } = useParams();
   const [reviewsList, setReviewsList] = useState([]);
-  let revList = [];
 
   useEffect(() => {
     async function prepareDetails() {
       const data = await fetchMovieReviews(movieId);
-      revList = [...data.results];
-      setReviewsList(revList);
+      setReviewsList(data.results);
     }
     if (!movieId) return;
     prepareDetails();
