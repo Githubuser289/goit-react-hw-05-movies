@@ -15,7 +15,9 @@ export const MovieDetails = () => {
   const [isLoading, setIsLoading] = useState(false);
   const { movieId } = useParams();
   const location = useLocation();
-  const backLinkHref = useRef(location.state?.from || '/');
+  const backLinkHref = useRef(
+    location.state?.from || 'goit-react-hw-05-movies'
+  );
 
   useEffect(() => {
     async function prepareDetails() {
