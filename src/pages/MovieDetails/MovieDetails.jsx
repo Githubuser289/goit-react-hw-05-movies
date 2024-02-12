@@ -29,8 +29,6 @@ const MovieDetails = () => {
           'https://www.themoviedb.org/t/p/w500' + data.poster_path;
       }
       setMovieData(data);
-      // genre = genres.map(m => m.name).join(', ');
-      // setFlag(true);
       setIsLoading(false);
     }
     if (!movieId) return;

@@ -12,7 +12,6 @@ async function fetchMovieCredits(movieId) {
     return response.data;
   } catch (error) {
     console.error(`Oops! Something went wrong! Error:` + error);
-    // spanElem.innerHTML = 'Oops! Something went wrong!';
   }
 }
 

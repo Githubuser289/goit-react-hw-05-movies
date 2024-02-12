@@ -3,7 +3,6 @@ import { Outlet, useLocation } from 'react-router-dom';
 import { Container, Header, Logo, Link } from './SharedLayout.styled';
 
 export const SharedLayout = () => {
-  // const [flag, setFlag] = useState(false);
   const location = useLocation();
   const txt = location.pathname;
   const isHomePage = txt.endsWith('movies/');
@@ -14,12 +13,10 @@ export const SharedLayout = () => {
     if (isHomePage) {
       elem.children[0].classList.add('active');
       elem.children[1].classList.remove('active');
-      // setFlag(item => !item);
       return;
     } else {
       elem.children[1].classList.add('active');
       elem.children[0].classList.remove('active');
-      // setFlag(item => !item);
       return;
     }
   }, [isHomePage]);
