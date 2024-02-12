@@ -6,8 +6,7 @@ export const SharedLayout = () => {
   // const [flag, setFlag] = useState(false);
   const location = useLocation();
   const txt = location.pathname;
-  const isHomePage = txt.startsWith('/goit') && !txt.endsWith('/movies');
-  const isMoviesPage = txt.endsWith('/movies');
+  const isHomePage = txt.endsWith('movies/');
 
   useEffect(() => {
     const elem = document.getElementById('123');
@@ -17,14 +16,13 @@ export const SharedLayout = () => {
       elem.children[1].classList.remove('active');
       // setFlag(item => !item);
       return;
-    }
-    if (isMoviesPage) {
+    } else {
       elem.children[1].classList.add('active');
       elem.children[0].classList.remove('active');
       // setFlag(item => !item);
       return;
     }
-  }, [isHomePage, isMoviesPage]);
+  }, [isHomePage]);
   return (
     <Container>
       <Header>
