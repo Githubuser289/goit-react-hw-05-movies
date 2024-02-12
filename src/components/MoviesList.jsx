@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 export const MoviesList = props => {
   const location = useLocation();
+
   return (
     <nav>
       <ul>

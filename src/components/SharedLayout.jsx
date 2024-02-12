@@ -6,13 +6,11 @@ export const SharedLayout = () => {
     <Container>
       <Header>
         <nav>
-          <Link to="/" end>
-            Home
-          </Link>
+          <Link to="/">Home</Link>
           <Link to="/movies">Movies</Link>
         </nav>
         <Logo>
-          <span role="img" aria-label="computer icon">
+          <span role="img" aria-label="camera icon">
             🎥
           </span>{' '}
           The Movie DataBase

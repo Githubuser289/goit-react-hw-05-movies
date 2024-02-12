@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { Gallery } from './Cast.styled';
 import Loader from 'components/Loader/Loader';
 
-export const Cast = () => {
+const Cast = () => {
   const [credits, setCredits] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const { movieId } = useParams();
@@ -48,3 +48,5 @@ export const Cast = () => {
     </Gallery>
   );
 };
+
+export default Cast;

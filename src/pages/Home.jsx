@@ -19,7 +19,7 @@ let movieData = {
 };
 let movieArray = [];
 
-export const Home = () => {
+const Home = () => {
   const [flag, setFlag] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -90,3 +90,5 @@ export const Home = () => {
     </main>
   );
 };
+
+export default Home;

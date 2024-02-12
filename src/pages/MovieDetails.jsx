@@ -5,7 +5,7 @@ import { fetchMovieDetails } from 'services/TheMovieDBapi';
 import { InfoDiv, MainDiv, MovieData } from './MovieDetails.styled';
 import Loader from 'components/Loader/Loader';
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const [movieData, setMovieData] = useState({
     original_title: '',
     overview: '',
@@ -15,9 +15,7 @@ export const MovieDetails = () => {
   const [isLoading, setIsLoading] = useState(false);
   const { movieId } = useParams();
   const location = useLocation();
-  const backLinkHref = useRef(
-    location.state?.from || 'goit-react-hw-05-movies'
-  );
+  const backLinkHref = useRef(location.state?.from || '/');
 
   useEffect(() => {
     async function prepareDetails() {
@@ -64,3 +62,5 @@ export const MovieDetails = () => {
     </MainDiv>
   );
 };
+
+export default MovieDetails;

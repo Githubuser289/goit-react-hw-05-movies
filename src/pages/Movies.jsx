@@ -21,7 +21,7 @@ let movieArray = [];
 let listOfGenres,
   counter = 0;
 
-export const Movies = () => {
+const Movies = () => {
   const [flag, setFlag] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -108,3 +108,5 @@ export const Movies = () => {
     </main>
   );
 };
+
+export default Movies;
