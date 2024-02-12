@@ -38,6 +38,7 @@ const MovieDetails = () => {
     prepareDetails();
   }, [movieId]);
 
+  console.log('movieDetails + location=', location);
   return (
     <MainDiv>
       <BackLink to={backLinkHref.current}>Go back</BackLink>

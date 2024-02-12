@@ -23,6 +23,7 @@ export const SharedLayout = () => {
       return;
     }
   }, [isHomePage]);
+  console.log('sharedLayout');
   return (
     <Container>
       <Header>
