@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import { fetchMovieCredits } from 'services/TheMovieDBapi';
 import { useEffect, useState } from 'react';
 import { Gallery } from './Cast.styled';
-import Loader from 'components/Loader/Loader';
+import Loader from 'components/Loader';
 
 const Cast = () => {
   const [credits, setCredits] = useState([]);
@@ -36,15 +36,19 @@ const Cast = () => {
   return (
     <Gallery>
       {isLoading && <Loader />}
-      {credits.map(({ profile_path, name, character, id }) => {
-        return (
-          <div key={id}>
-            <img src={profile_path} alt={name} />
-            <span>{name}</span>
-            <i>Character: {character}</i>
-          </div>
-        );
-      })}
+      {credits.length > 0 ? (
+        credits.map(({ profile_path, name, character, id }) => {
+          return (
+            <div key={id}>
+              <img src={profile_path} alt={name} />
+              <span>{name}</span>
+              <i>Character: {character}</i>
+            </div>
+          );
+        })
+      ) : (
+        <i>   Sorry! There are no infos about casting.</i>
+      )}
     </Gallery>
   );
 };

@@ -1,9 +1,9 @@
 import { MoviesList } from 'components/MoviesList';
-import Searchbar from 'components/Searchbar';
-import { useEffect, useState } from 'react';
+import Searchbar from 'components/Searchbar/Searchbar';
+import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { fetchMoviesGenres, fetchSearchedMovies } from 'services/TheMovieDBapi';
-import Loader from 'components/Loader/Loader';
+import Loader from 'components/Loader';
 
 let movieData = {
   id: 0,

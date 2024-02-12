@@ -1,7 +1,7 @@
 import { MoviesList } from 'components/MoviesList';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { fetchTrendingMovies, fetchMoviesGenres } from 'services/TheMovieDBapi';
-import Loader from 'components/Loader/Loader';
+import Loader from 'components/Loader';
 
 let listOfGenres,
   counter = 0;

@@ -10,7 +10,10 @@ export const MoviesList = props => {
         {props.data.map((movie, index) => {
           return (
             <li key={index}>
-              <Link to={`/movies/${movie.id}`} state={{ from: location }}>
+              <Link
+                to={`/goit-react-hw-05-movies/movies/${movie.id}`}
+                state={{ from: location }}
+              >
                 {movie.title}
               </Link>
             </li>

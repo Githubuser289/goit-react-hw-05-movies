@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import { fetchMovieDetails } from 'services/TheMovieDBapi';
 import { InfoDiv, MainDiv, MovieData } from './MovieDetails.styled';
-import Loader from 'components/Loader/Loader';
+import Loader from 'components/Loader';
 
 const MovieDetails = () => {
   const [movieData, setMovieData] = useState({
